@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="elec" namespace="/" extends="struts-default">
+		<action name="elecDeleteAction" class="com.gs.action.ElecAction" method="delete">
+			<result name="success">/elec/elecadmin/deletesuccess.jsp</result>
+			<result name="fail">/elec/elecadmin/deletefail.jsp</result>
+		</action>
+		<action name="elecIndexAction" class="com.gs.action.ElecAction" method="index">
+			<result name="success">/index.htm</result>
+		</action>
+		<action name="elecListAction" class="com.gs.action.ElecAction" method="list">
+			<result name="list">/elec/elecadmin/eleclist.jsp</result>
+		</action>
+		<action name="elecSearchAction" class="com.gs.action.ElecAction" method="search">
+			<result name="success">/elec/elecadmin/searchelecresult.jsp</result>
+			<result name="fail">/elec/elecadmin/donthaveelec.jsp</result>
+		</action>
+		<action name="elecRegistAction" class="com.gs.action.ElecAction" method="regist">
+			<result name="success">/elec/regist/registsuccess.jsp</result>
+			<result name="havedone">/elec/regist/registfail.jsp</result>
+		</action>
+		<action name="elecRegistPastAction" class="com.gs.action.ElecAction" method="registPast">
+			<result name="success">/elec/regist/registpast.jsp</result>
+			<result name="havedone">/elec/regist/registfail.jsp</result>
+			<result name="donthaveday">/elec/regist/registdhday.jsp</result>
+		</action>
+		<action name="elecUpdateDoAction" class="com.gs.action.ElecAction" method="updateDo">
+			<result name="success">/elec/elecadmin/updatesuccess.jsp</result>
+			<result name="fail">/elec/elecadmin/updatefail.jsp</result>
+		</action>
+		<action name="elecUpdateAction" class="com.gs.action.ElecAction" method="update">
+			<result name="update">/elec/elecadmin/update.jsp</result>
+			<result name="fail">/elec/elecadmin/updatefail.jsp</result>
+		</action>
+		<action name="elecMakeChartAction" class="com.gs.action.ElecAction" method="makeChart">
+			<result name="success">/elec/elecadmin/chart.jsp</result>
+			<result name="fail">/elec/elecadmin/makechartfail.jsp</result>
+		</action>
+		<action name="elecReportAction" class="com.gs.action.ElecAction" method="reportByDate">
+			<result name="success">/elec/elecadmin/reportsuccess.jsp</result>
+		</action>
+		<action name="elecTestAction" class="com.gs.action.ElecAction" method="testlog">
+			<result name="success">/elec/TestLog.jsp</result>
+		</action>
+		<action name="elecTipsAction" class="com.gs.action.ElecAction" method="tips">
+			<result name="success">/first.jsp</result>
+		</action>
+	</package>
+	
+	<constant name="struts.objectFactory" value="spring" />
+</struts>

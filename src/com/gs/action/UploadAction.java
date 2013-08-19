@@ -4,7 +4,12 @@
 package com.gs.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -25,14 +30,29 @@ public class UploadAction extends ActionSupport {
 	 * @return the savaPath
 	 */
 	public String getSavaPath() {
-		return savaPath;
+		return ServletActionContext.getRequest().getRealPath(savaPath);
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 */
 	public String execute(){
-		
+		try {
+			String fileName = getSavaPath()+"\\"+getUploadFileName();
+			FileOutputStream fos = new FileOutputStream(fileName);
+			FileInputStream fis = new FileInputStream(getUpload());
+			byte[] b = new byte[1024];
+			int len = 0;
+			while((len=fis.read(b))>0){
+				fos.write(b, 0, len);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 

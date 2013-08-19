@@ -52,6 +52,16 @@
 		<action name="elecTipsAction" class="com.gs.action.ElecAction" method="tips">
 			<result name="success">/first.jsp</result>
 		</action>
+		<action name="uploadAction" class="com.gs.action.UploadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">90000000</param>
+				<param name="allowedTypes">image/jpg</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="savePath">/save</param>
+			<result name="success">/upload/success.jsp</result>
+			<result name="input">/upload/fail.jsp</result>
+		</action>
 	</package>
 	
 	<constant name="struts.objectFactory" value="spring" />

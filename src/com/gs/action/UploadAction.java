@@ -30,7 +30,8 @@ public class UploadAction extends ActionSupport {
 	 * @return the savaPath
 	 */
 	public String getSavaPath() {
-		return ServletActionContext.getRequest().getRealPath(savaPath);
+		return ServletActionContext.getRequest().getRealPath("\\save");
+		//return "/save";
 	}
 	
 	/* (non-Javadoc)

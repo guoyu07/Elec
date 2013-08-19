@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.devMode" value="true" />
-	
+	<constant name="struts.multipart.paeser" value="jakarta"></constant>
 	<package name="elec" namespace="/" extends="struts-default">
 		<action name="elecDeleteAction" class="com.gs.action.ElecAction" method="delete">
 			<result name="success">/elec/elecadmin/deletesuccess.jsp</result>
@@ -55,10 +55,10 @@
 		<action name="uploadAction" class="com.gs.action.UploadAction">
 			<interceptor-ref name="fileUpload">
 				<param name="maximumSize">90000000</param>
-				<param name="allowedTypes">image/jpg</param>
+				<param name="allowedTypes"> image/bmp,image/png,image/gif,image/jpeg,image/jpg,
+      image/pjpeg ,image/bmp, image/gif, image/x-png</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"/>
-			<param name="savePath">/save</param>
 			<result name="success">/upload/success.jsp</result>
 			<result name="input">/upload/fail.jsp</result>
 		</action>

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <s:form action="uploadAction" method="post" theme="simple">
+   <s:form action="uploadAction" method="post" theme="simple" enctype="multipart/form-data">
    		<s:file name="upload" cssStyle="width:300px"></s:file>
    		<s:submit value="submit"></s:submit>
    </s:form>

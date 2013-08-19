@@ -7,10 +7,11 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.*; 
 import org.jfree.chart.plot.*; 
 
-/** 
-* 该类用于演示最简单的柱状图生成
-* @author Winter Lau 
-*/ 
+
+/**
+ * @author GaoShen
+ * @packageName com.gs.chart
+ */
 public class TestChart { 
     public static void main(String[] args) throws IOException{ 
         CategoryDataset dataset = getDataSet2(); 

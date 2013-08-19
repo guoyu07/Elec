@@ -16,8 +16,8 @@ import com.gs.action.FrameAction;
 import com.gs.util.MyDate;
 
 /**
- *
- * @author  __USER__
+ * @author GaoShen
+ * @packageName com.gs.swing
  */
 @Component("frame")
 public class test extends javax.swing.JFrame {

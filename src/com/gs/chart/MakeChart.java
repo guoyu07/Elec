@@ -15,6 +15,10 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.stereotype.Component;
 
 import com.gs.model.Elec;
+/**
+ * @author GaoShen
+ * @packageName com.gs.chart
+ */
 @Component("makeChart")
 public class MakeChart {
 	private List<Elec> elecs;

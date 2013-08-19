@@ -15,6 +15,10 @@ import com.gs.exception.DontHaveThatDayException;
 import com.gs.model.Elec;
 import com.gs.util.MyDate;
 
+/**
+ * @author GaoShen
+ * @packageName com.gs.service
+ */
 @Transactional
 @Component("elecService")
 public class ElecService {

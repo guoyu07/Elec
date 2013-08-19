@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author GaoShen
+ * @packageName com.gs.model
+ */
 @Entity
 @Table(name = "elec")
 @org.hibernate.annotations.Proxy(lazy = false)

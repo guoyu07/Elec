@@ -18,6 +18,7 @@ import com.gs.lucene.Searcher;
 import com.gs.model.Elec;
 import com.gs.service.ElecService;
 import com.gs.util.ExceptionReader;
+import com.gs.util.ExceptionToFile;
 import com.gs.util.LogToMail;
 import com.gs.util.MailReporter;
 import com.gs.util.MyDate;
@@ -121,5 +122,11 @@ public class Test1 {
 	public void testSearcher(){
 		Searcher s = new Searcher();
 		s.search("20130820");
+	}
+	
+	@Test
+	public void test2File(){
+		ExceptionToFile etf = new ExceptionToFile();
+		etf.print(new Exception("Hello World!"));
 	}
 }

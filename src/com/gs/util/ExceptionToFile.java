@@ -8,12 +8,19 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Date;
 
+import org.apache.commons.io.monitor.FileEntry;
+
 public class ExceptionToFile {
 	private PrintStream ps;
 	private MyDate m = new MyDate();
 
 	public ExceptionToFile() {
-		File file = new File("..\\webapps\\Elec\\logs\\" + m.getDate() + ".log");
+		File file = new File(m.getDate() + ".log");
+		
+		FileEntry fe = new FileEntry(file);
+		fe.getParent();
+		System.out.println(fe.getParent());
+		/*File file = new File("..\\webapps\\Elec\\logs\\" + m.getDate() + ".log");*/
 		OutputStream out = null;
 		try {
 			out = new FileOutputStream(file, true);

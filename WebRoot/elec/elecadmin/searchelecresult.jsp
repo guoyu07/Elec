@@ -30,5 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	当天充值: <s:property value="elec.inputelec"/><br> --%>
     	<s:property value="result"/>
     <a href="/Elec/index.jsp" style="font-size: x-large;">返回首页</a><br>
+    <s:debug></s:debug>
   </body>
 </html>

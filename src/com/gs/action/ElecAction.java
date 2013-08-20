@@ -220,6 +220,20 @@ public class ElecAction extends ActionSupport implements ServletRequestAware,
 		return SUCCESS;
 	}
 	
+	/**
+	 * @return the result
+	 */
+	public String getResult() {
+		return result;
+	}
+
+	/**
+	 * @param result the result to set
+	 */
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	public String tips() {
 		MyDate m = new MyDate();
 		current = ElecService.getCurrent();

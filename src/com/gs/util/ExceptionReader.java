@@ -16,19 +16,19 @@ public class ExceptionReader {
 	private MyDate m = new MyDate();
 	private ExceptionToFile ef = new ExceptionToFile();
 	private File file;
+	private File logFile;
 
 	public ExceptionReader() {
 		try {
-			file = new File("..\\webapps\\Elec\\logs\\"
-					+ m.getBefore().getDate() + ".log");
-			System.out.println(file.getAbsolutePath());
-			s = s + "File Name : " + file.getName() + "<br>";
+			File file = new File(m.getDate() + ".log");
+			logFile = new File(file.getAbsoluteFile().getParentFile().getAbsolutePath()+"\\logs\\"+m.getBefore().getDate() + ".log");
+			s = s + "File Name : " + logFile.getName() + "<br>";
 		} catch (Exception e1) {
 			ef.print(e1);
 			e1.printStackTrace();
 		}
 		try {
-			FileReader fr = new FileReader(file);
+			FileReader fr = new FileReader(logFile);
 			BufferedReader br = new BufferedReader(fr);
 			while ((temp = br.readLine()) != null) {
 				s = s + temp + "\n";

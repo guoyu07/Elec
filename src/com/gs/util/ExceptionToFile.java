@@ -16,14 +16,14 @@ public class ExceptionToFile {
 
 	public ExceptionToFile() {
 		File file = new File(m.getDate() + ".log");
-		
-		FileEntry fe = new FileEntry(file);
-		fe.getParent();
-		System.out.println(fe.getParent());
+		System.out.println(file.getAbsoluteFile().getParentFile());
+
+		File logFile = new File(file.getAbsoluteFile().getParentFile().getAbsolutePath()+"\\logs");
+		System.out.println(logFile.getAbsolutePath());
 		/*File file = new File("..\\webapps\\Elec\\logs\\" + m.getDate() + ".log");*/
 		OutputStream out = null;
 		try {
-			out = new FileOutputStream(file, true);
+			out = new FileOutputStream(logFile, true);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -13,6 +13,7 @@ public class MyDate {
 	private int day;
 	private int date;
 	private Calendar c = Calendar.getInstance();
+	private MyDate m;
 
 	public MyDate() {
 		this.year = c.get(Calendar.YEAR);
@@ -102,8 +103,13 @@ public class MyDate {
 		return correct;
 	}
 
-	public MyDate getBefore() throws Exception { // 一旦跨年会产生问题！！！！
-		MyDate m = new MyDate(date);
+	public MyDate getBefore()  { // 一旦跨年会产生问题！！！！
+		try {
+			m = new MyDate(date);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if (this.day == 1 && this.month != 1) {
 			if (month == 1 || month == 3 || month == 5 || month == 7
 					|| month == 8 || month == 10 || month == 12) {

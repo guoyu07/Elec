@@ -21,7 +21,7 @@ public class ExceptionReader {
 	public ExceptionReader() {
 		try {
 			File file = new File(m.getDate() + ".log");
-			logFile = new File(file.getAbsoluteFile().getParentFile().getParentFile()+"\\webapps\\Elec\\logs"+m.getDate() + ".log");
+			logFile = new File(file.getAbsoluteFile().getParentFile().getParentFile()+"\\webapps\\Elec\\logs\\"+m.getDate() + ".log");
 			s = s + "File Name : " + logFile.getName() + "<br>";
 		} catch (Exception e1) {
 			ef.print(e1);

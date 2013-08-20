@@ -18,8 +18,8 @@ public class ExceptionToFile {
 		File file = new File(m.getDate() + ".log");
 		System.out.println(file.getAbsoluteFile().getParentFile());
 
-		File logFile = new File(file.getAbsoluteFile().getParentFile().getParentFile()+"\\webapps\\Elec\\logs"+m.getDate() + ".log");
-		System.out.println(logFile.getAbsolutePath());
+		File logFile = new File(file.getAbsoluteFile().getParentFile().getParentFile()+"\\webapps\\Elec\\logs\\"+m.getDate() + ".log");
+		System.out.println("WRITE"+logFile.getAbsolutePath());
 		/*File file = new File("..\\webapps\\Elec\\logs\\" + m.getDate() + ".log");*/
 		OutputStream out = null;
 		try {

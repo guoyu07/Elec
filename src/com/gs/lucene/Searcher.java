@@ -3,8 +3,6 @@ package com.gs.lucene;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
@@ -25,8 +23,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
  */
 public class Searcher {
 	
-	private String indexField="D:\\Lucene\\indexes\\chineseIndexes";
-	private String encoding = "GB2312";
+	private String indexField="D:\\Lucene\\indexes\\dataIndexes";
 
 	/**
 	 * @param queryString
@@ -50,24 +47,17 @@ public class Searcher {
 			Directory directory  = FSDirectory.open(path);
 			IndexReader reader = IndexReader.open(directory);
 			IndexSearcher seacher  =new IndexSearcher(reader);
-			QueryParser query = new QueryParser(Version.LUCENE_35, "content", new IKAnalyzer());
+			QueryParser query = new QueryParser(Version.LUCENE_35, "date", new IKAnalyzer());
 			Query q = query.parse(queryString);
 			TopDocs td  = seacher.search(q, 10);
 			ScoreDoc[] sds = td.scoreDocs;
-			FileUtils fu = new FileUtils();
 			for(ScoreDoc sd:sds){
 				Document d = seacher.doc(sd.doc);
-				System.out.println("PATH:\n"+d.get("path")+"\n\n"+"CONTENT:\n");
-				File f= new File(d.get("path"));
-				//fu.readFileToString(f, "YTF-8");
-				System.out.println(fu.readFileToString(f, encoding));
-				System.out.println("\n==============");
+				System.out.println("日期:"+d.get("date")+"电量:"+d.get("elecnum")+"用量:"+d.get("used"));
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -24,10 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    	日期: <s:property value="elec.date"/><br>
+    	<%-- 日期: <s:property value="elec.date"/><br>
     	电费: <s:property value="elec.elecnum"/><br>
     	当天耗電: <s:property value="elec.used"/><br>
-    	当天充值: <s:property value="elec.inputelec"/><br>
+    	当天充值: <s:property value="elec.inputelec"/><br> --%>
+    	<s:property value="result"/>
     <a href="/Elec/index.jsp" style="font-size: x-large;">返回首页</a><br>
   </body>
 </html>

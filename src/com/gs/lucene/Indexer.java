@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.NumericField;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
@@ -62,9 +63,12 @@ public class Indexer {
 			for (int i = 0; i < list.size(); i++) {
 				Elec elec = (Elec) list.get(i);
 				doc = new Document();
-				doc.add(new NumericField("elecnum",Field.Store.YES, true).setIntValue(elec.getElecnum()));
+				/*doc.add(new NumericField("elecnum",Field.Store.YES, true).setIntValue(elec.getElecnum()));
 				doc.add(new NumericField("used",Field.Store.YES, true).setIntValue(elec.getUsed()));
-				doc.add(new NumericField("date",Field.Store.YES, true).setIntValue(elec.getDate()));
+				doc.add(new NumericField("date",Field.Store.YES, true).setIntValue(elec.getDate()));*/
+				doc.add(new Field("elecnum",String.valueOf(elec.getElecnum()),Field.Store.YES,Index.NOT_ANALYZED));
+				doc.add(new Field("date",String.valueOf(elec.getDate()),Field.Store.YES,Index.NOT_ANALYZED));
+				doc.add(new Field("used",String.valueOf(elec.getUsed()),Field.Store.YES,Index.NOT_ANALYZED));
 				writer.addDocument(doc);
 			}
 			writer.close();

@@ -26,6 +26,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.ValueStack;
 import com.gs.chart.MakeChart;
 import com.gs.exception.DontHaveThatDayException;
+import com.gs.lucene.Searcher;
 import com.gs.model.Elec;
 import com.gs.service.ElecService;
 import com.gs.test.DownloadWebPage;
@@ -61,6 +62,7 @@ public class ElecAction extends ActionSupport implements ServletRequestAware,
 	private int used;
 	private static String MAILADDR = "63388@qq.com";
 	private HttpServletRequest httpServletRequest;
+	private String result;
 	
 	public int getInputelec() {
 		return inputelec;
@@ -208,7 +210,10 @@ public class ElecAction extends ActionSupport implements ServletRequestAware,
 
 	public String search() {
 		try {
-			elec = ElecService.loadElec(date);
+			/*elec = ElecService.loadElec(date);*/
+			Searcher searcher = new Searcher();
+			result = searcher.search(String.valueOf(date));
+			
 		} catch (Exception e) {
 			return "fail";
 		}

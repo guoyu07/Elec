@@ -14,6 +14,7 @@ import com.gs.DAO.ElecDAO;
 import com.gs.chart.MakeChart;
 import com.gs.exception.DontHaveThatDayException;
 import com.gs.lucene.Indexer;
+import com.gs.lucene.Searcher;
 import com.gs.model.Elec;
 import com.gs.service.ElecService;
 import com.gs.util.ExceptionReader;
@@ -114,5 +115,11 @@ public class Test1 {
 		Indexer i = (Indexer) ctx.getBean("indexer");
 		i.index();
 		
+	}
+	
+	@Test
+	public void testSearcher(){
+		Searcher s = new Searcher();
+		s.search("20130820");
 	}
 }

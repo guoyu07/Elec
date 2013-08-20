@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.gs.DAO.ElecDAO;
 import com.gs.chart.MakeChart;
 import com.gs.exception.DontHaveThatDayException;
+import com.gs.lucene.Indexer;
 import com.gs.model.Elec;
 import com.gs.service.ElecService;
 import com.gs.util.ExceptionReader;
@@ -103,6 +104,15 @@ public class Test1 {
 	public void testdown(){
 		DownloadWebPage d = new DownloadWebPage();
 		d.down();
+		
+	}
+	
+	@Test
+	public void testLucene(){
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"beans.xml");
+		Indexer i = (Indexer) ctx.getBean("indexer");
+		i.index();
 		
 	}
 }
